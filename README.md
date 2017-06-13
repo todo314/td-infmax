@@ -54,45 +54,45 @@ You can choose one of the following four settings of diffusion model (model), ed
 	<td>exponential</td>
 	<td>weibull</td>
 	<td>Weighted exponential IC</td>
-	<td><img src="https://latex.codecogs.com/gif.latex?p_{uv}(t) = \frac{1}{|N^-(v)|} \exp(- c_{uv}t)"/></td>
-	<td><img src="https://latex.codecogs.com/gif.latex?f_e(\delta) = \frac{\alpha_e}{\beta_e} \cdot \left( \frac{\delta}{\beta_e} \right)^{\alpha_e-1} \cdot \exp\left(-\left( \frac{\delta}{\beta_e} \right)^{\alpha_e}\right)"/></td>
+	<td><img src="https://latex.codecogs.com/gif.latex?p_{uv}(t)=\frac{1}{|N^-(v)|}\exp(-c_{uv}t)"/></td>
+	<td><img src="https://latex.codecogs.com/gif.latex?f_e(\delta)=\frac{\alpha_e}{\beta_e}\cdot\left(\frac{\delta}{\beta_e}\right)^{\alpha_e-1}\cdot\exp\left(-\left(\frac{\delta}{\beta_e}\right)^{\alpha_e}\right)"/></td>
 	</tr>
 	<tr>
 	<td>tvic</td>
 	<td>inverse</td>
 	<td>weibull</td>
 	<td>Weighted reciprocal IC</td>
-	<td><img src="https://latex.codecogs.com/gif.latex?p_{uv}(t) = \frac{1}{|N^-(v)| c_{uv} t}"/></td>
-	<td><img src="https://latex.codecogs.com/gif.latex?f_e(\delta) = \frac{\alpha_e}{\beta_e} \cdot \left( \frac{\delta}{\beta_e} \right)^{\alpha_e-1} \cdot \exp\left(-\left( \frac{\delta}{\beta_e} \right)^{\alpha_e}\right)"/></td>
+	<td><img src="https://latex.codecogs.com/gif.latex?p_{uv}(t)=\frac{1}{|N^-(v)|c_{uv}t}"/></td>
+	<td><img src="https://latex.codecogs.com/gif.latex?f_e(\delta)=\frac{\alpha_e}{\beta_e}\cdot\left(\frac{\delta}{\beta_e}\right)^{\alpha_e-1}\cdot\exp\left(-\left(\frac{\delta}{\beta_e}\right)^{\alpha_e}\right)"/></td>
 	</tr>
 	<tr>
 	<td>tvlt</td>
 	<td>exponential</td>
 	<td>weibull</td>
 	<td>Weighted exponential LT</td>
-	<td><img src="https://latex.codecogs.com/gif.latex?q_{uv}(t) = \frac{1}{|N^-(v)|} \exp(- c_{uv}t)"/></td>
-	<td><img src="https://latex.codecogs.com/gif.latex?f_e(\delta) = \frac{\alpha_e}{\beta_e} \cdot \left( \frac{\delta}{\beta_e} \right)^{\alpha_e-1} \cdot \exp\left(-\left( \frac{\delta}{\beta_e} \right)^{\alpha_e}\right)"/></td>
+	<td><img src="https://latex.codecogs.com/gif.latex?q_{uv}(t)=\frac{1}{|N^-(v)|}\exp(-c_{uv}t)"/></td>
+	<td><img src="https://latex.codecogs.com/gif.latex?f_e(\delta)=\frac{\alpha_e}{\beta_e}\cdot\left(\frac{\delta}{\beta_e}\right)^{\alpha_e-1}\cdot\exp\left(-\left(\frac{\delta}{\beta_e}\right)^{\alpha_e}\right)"/></td>
 	</tr>
 	<tr>
 	<td>tvlt</td>
 	<td>inverse</td>
 	<td>weibull</td>
 	<td>Weighted reciprocal LT</td>
-	<td><img src="https://latex.codecogs.com/gif.latex?q_{uv}(t) = \frac{1}{|N^-(v)| c_{uv} (t+1)}"/></td>
-	<td><img src="https://latex.codecogs.com/gif.latex?f_e(\delta) = \frac{\alpha_e}{\beta_e} \cdot \left( \frac{\delta}{\beta_e} \right)^{\alpha_e-1} \cdot \exp\left(-\left( \frac{\delta}{\beta_e} \right)^{\alpha_e}\right)"/></td>
+	<td><img src="https://latex.codecogs.com/gif.latex?q_{uv}(t)=\frac{1}{|N^-(v)|c_{uv}(t+1)}"/></td>
+	<td><img src="https://latex.codecogs.com/gif.latex?f_e(\delta)=\frac{\alpha_e}{\beta_e}\cdot\left(\frac{\delta}{\beta_e}\right)^{\alpha_e-1}\cdot\exp\left(-\left(\frac{\delta}{\beta_e}\right)^{\alpha_e}\right)"/></td>
 	</tr>
 </table>
 
 ### Example
 Running IMM for TVIC and TVLT, IMM-CTIC, IMM-IC for the TV-IC model.
 
-    $ ./imm.exe -graph=.test.tsv -k=100 -alg=imm -eps=0.5 -ell=1 -model=tvic -delay=weibull -prob=exponential -numMC=10000
-    $ ./imm.exe -graph=.test.tsv -k=100 -alg=imm-ctic -deadline=1 -eps=0.5 -ell=1 -model=tvic -delay=weibull -prob=exponential -numMC=10000
-    $ ./imm.exe -graph=.test.tsv -k=100 -alg=imm-ic -eps=0.5 -ell=1 -model=tvic -delay=weibull -prob=exponential -numMC=10000
+    $ ./imm.exe -graph=./test.tsv -k=100 -alg=imm -eps=0.5 -ell=1 -model=tvic -delay=weibull -prob=exponential -numMC=10000
+    $ ./imm.exe -graph=./test.tsv -k=100 -alg=imm-ctic -deadline=1 -eps=0.5 -ell=1 -model=tvic -delay=weibull -prob=exponential -numMC=10000
+    $ ./imm.exe -graph=./test.tsv -k=100 -alg=imm-ic -eps=0.5 -ell=1 -model=tvic -delay=weibull -prob=exponential -numMC=10000
 Running IMM for TVIC and TVLT, IMM-LT for the TV-LT model.
 
-    $ ./imm.exe -graph=.test.tsv -k=100 -alg=imm -eps=0.5 -ell=1 -model=tvlt -delay=weibull -prob=exponential -numMC=10000
-    $ ./imm.exe -graph=.test.tsv -k=100 -alg=imm-lt -eps=0.5 -ell=1 -model=tvlt -delay=weibull -prob=exponential -numMC=10000
+    $ ./imm.exe -graph=./test.tsv -k=100 -alg=imm -eps=0.5 -ell=1 -model=tvlt -delay=weibull -prob=exponential -numMC=10000
+    $ ./imm.exe -graph=./test.tsv -k=100 -alg=imm-lt -eps=0.5 -ell=1 -model=tvlt -delay=weibull -prob=exponential -numMC=10000
 
 ### Format of the input graph
     u_1 v_1 alpha_1 beta_1 c_1
